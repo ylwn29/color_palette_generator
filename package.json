@@ -1,0 +1,14 @@
+{
+    "name": "color_palette_generator",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+      "@netlify/functions": "^0.10.0",
+      "openai": "^3.0.0",
+      "dotenv": "^10.0.0"
+    },
+    "scripts": {
+      "start": "netlify dev"
+    }
+  }
+  

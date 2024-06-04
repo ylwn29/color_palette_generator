@@ -7,7 +7,7 @@ form.addEventListener("submit", function (e) {
 
 function getColors() {
   const query = form.elements.query.value;
-  fetch("/palette", {
+  fetch("/.netlify/functions/palette", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

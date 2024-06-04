@@ -47,7 +47,16 @@ def prompt_to_palette():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    response = client.chat.completions.create(
+
+        messages=[{"role": "user", "content": "The dog says"}],
+        model="gpt-3.5-turbo",
+        max_tokens=200,
+    )
+
+    colors = json.loads(response.choices[0].message.content)
+    return colors
+    # return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

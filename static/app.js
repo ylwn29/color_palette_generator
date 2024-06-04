@@ -7,7 +7,7 @@ form.addEventListener("submit", function (e) {
 
 function getColors() {
   const query = form.elements.query.value;
-  fetch("https://color-palette-generator-site-a628e6ee50fe.herokuapp.com/palette", {
+  fetch("/palette", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

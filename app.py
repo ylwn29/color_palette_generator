@@ -7,7 +7,7 @@ config = dotenv_values(".env")
 client = OpenAI(api_key=config["OPENAI_API_KEY"])
 
 app = Flask(
-    __name__, template_folder="templates"
+    __name__, template_folder="templates", static_url_path="", static_folder="static"
 )
 
 def get_colors(msg):
@@ -47,16 +47,7 @@ def prompt_to_palette():
 
 @app.route("/")
 def index():
-    response = client.chat.completions.create(
-
-        messages=[{"role": "user", "content": "The dog says"}],
-        model="gpt-3.5-turbo",
-        max_tokens=200,
-    )
-
-    colors = json.loads(response.choices[0].message.content)
-    return colors
-    # return render_template("index.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
